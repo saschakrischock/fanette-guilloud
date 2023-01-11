@@ -1,12 +1,20 @@
 <script setup lang="ts">
+useHead({
+  bodyAttrs: {
+    class: 'single-project',
+  },
+})
+
 const { data } = await useKql({
   query: `page("${useRoute().path}")`,
+  isProject: true,
   select: {
     id: true,
     title: true,
     // description: true,
     subheadline: true,
     text: true,
+    isProject: true,
     gallery: {
       query: 'page.images.sortBy("sort", "filename")',
       select: {
@@ -29,51 +37,55 @@ const page = setPage(() => data.value?.result)
 
 <template>
   <article>
-    <AppIntro />
+    <div class="single-project__text">
+      <div class="text" v-html="page?.text" />
+    </div>
 
-    <div class="grid">
-      <div class="column" style="--columns: 4">
-        <div class="text" v-html="page?.text" />
-      </div>
-
-      <div class="column" style="--columns: 8">
-        <ul class="album-gallery">
-          <li v-for="(image, index) in page?.gallery ?? []" :key="index">
-            <figure
-              class="img"
-              :style="`
-                  --w: ${image.width};
-                  --h: ${image.height};
-                `"
-            >
-              <img
-                v-zoom
-                :src="image.resized.url"
-                :data-zoom-src="image.url"
-                :alt="image.alt"
-              />
-            </figure>
-          </li>
-        </ul>
-      </div>
+    <div class="column" style="--columns: 8">
+      <ul class="album-gallery">
+        <li v-for="(image, index) in page?.gallery ?? []" :key="index">
+          <img :src="image?.resized?.url" :alt="image.alt" />
+        </li>
+      </ul>
     </div>
   </article>
 </template>
 
 <style scoped>
+.single-project__text {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 40rem;
+}
 .album-gallery {
   line-height: 0;
-  columns: 1;
-  column-gap: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.1rem;
 }
+
 .album-gallery li {
   display: block;
-  margin-bottom: 1.5rem;
+  aspect-ratio: 533/658;
+  background-color: #000;
   break-inside: avoid;
 }
 @media screen and (min-width: 60rem) {
   .album-gallery {
     columns: 2;
   }
+}
+.page-enter-from {
+  opacity: 0;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.2s;
+}
+.page-enter,
+.page-leave-to {
+  opacity: 0;
 }
 </style>

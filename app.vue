@@ -10,9 +10,9 @@ import '~/assets/css/medium-zoom.css'
     </Head>
 
     <Body>
-      <AppHeader />
-
       <main class="main">
+        <AppHeader />
+
         <NuxtPage />
       </main>
 

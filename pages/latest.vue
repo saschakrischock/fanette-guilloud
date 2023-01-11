@@ -1,6 +1,12 @@
 <script setup lang="ts">
+useHead({
+  bodyAttrs: {
+    class: 'hide-nav',
+  },
+})
+
 const { data } = await useKql({
-  query: 'page("home")',
+  query: 'page("index")',
   select: {
     id: true,
     title: true,
@@ -43,17 +49,34 @@ const { data: photographyData } = await useKql({
 
 const albums = computed(() => photographyData.value?.result ?? [])
 </script>
+
 <template>
   <div>
+    <AppSelector />
+    <header class="h1">
+      <h1>
+        {{ page?.headline || page?.title }}
+      </h1>
+      latest
+      <p v-if="page?.subheadline" class="color-grey">{{ page.subheadline }}</p>
+    </header>
+
     <ul class="home-grid">
       <li v-for="(album, index) in albums" :key="index">
         <NuxtLink :to="`/${album.id}`">
-          <img
-            :src="
-              album?.cover?.resized?.url ?? album?.images?.[0]?.resized?.url
-            "
-            :alt="album?.cover?.alt ?? album?.images?.[0]?.alt"
-          />
+          <figure>
+            <img
+              :src="
+                album?.cover?.resized?.url ?? album?.images?.[0]?.resized?.url
+              "
+              :alt="album?.cover?.alt ?? album?.images?.[0]?.alt"
+            />
+            <figcaption>
+              <span>
+                <span class="example-name">{{ album.title }}</span>
+              </span>
+            </figcaption>
+          </figure>
         </NuxtLink>
       </li>
     </ul>
@@ -62,12 +85,12 @@ const albums = computed(() => photographyData.value?.result ?? [])
 
 <style scoped>
 .home-grid {
+  background-color: red;
   display: grid;
   list-style: none;
   gap: 0.1rem;
   line-height: 0;
   grid-template-columns: repeat(5, 1fr);
-  grid-auto-flow: dense;
 }
 .home-grid li {
   position: relative;
@@ -79,27 +102,13 @@ const albums = computed(() => photographyData.value?.result ?? [])
   line-height: 0;
 }
 
-.home-grid li:hover a:after {
-  backdrop-filter: blur(0.2rem);
-}
-
-.home-grid a:after {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  transition: all 0.3s ease-in;
-  width: 100%;
-  height: 100%;
-}
-
 .home-grid a {
   display: block;
-  aspect-ratio: 533/658;
+  height: 10rem;
 }
 .home-grid img {
+  position: absolute;
   top: 0;
-  position: relative;
   right: 0;
   bottom: 0;
   left: 0;
@@ -108,6 +117,7 @@ const albums = computed(() => photographyData.value?.result ?? [])
   object-fit: cover;
   transition: all 0.3s;
 }
+
 .home-grid figcaption {
   display: flex;
   align-items: center;
@@ -132,20 +142,7 @@ const albums = computed(() => photographyData.value?.result ?? [])
     grid-row-start: span var(--rows);
   }
   .home-grid a {
+    padding-bottom: 52.65%;
   }
-}
-
-/* "page" is hardcoded in nuxt3 page transitions atm */
-.page-enter-from {
-  opacity: 0;
-}
-
-.page-enter-active,
-.page-leave-active {
-  transition: all 0.2s;
-}
-.page-enter,
-.page-leave-to {
-  opacity: 0;
 }
 </style>

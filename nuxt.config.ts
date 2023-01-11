@@ -1,5 +1,9 @@
 export default defineNuxtConfig({
-  modules: ['@vueuse/nuxt', 'nuxt-kql'],
+  modules: ['@vueuse/nuxt', 'nuxt-kql', '@nuxtjs/device'],
+
+  app: {
+    pageTransition: { name: 'page', mode: 'out-in' },
+  },
 
   runtimeConfig: {
     public: {
@@ -10,7 +14,7 @@ export default defineNuxtConfig({
   kql: {
     auth: 'bearer',
     server: {
-      cache: true,
+      cache: false,
     },
   },
 

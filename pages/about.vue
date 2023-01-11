@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { data } = await useKql({
+  isActive: true,
   query: `page("${useRoute().path}")`,
   select: {
     id: true,

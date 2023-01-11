@@ -16,24 +16,7 @@ function formatDateShort(date: Date) {
 <template>
   <article class="note-excerpt">
     <NuxtLink :to="`/${note?.id}`">
-      <header>
-        <figure class="img" style="--w: 16; --h: 9">
-          <img :src="note?.cover?.url ?? note?.images?.[0]?.url" alt="" />
-        </figure>
-
-        <h2 class="note-excerpt-title">{{ note?.title }}</h2>
-        <time
-          v-if="note?.published"
-          class="note-excerpt-date"
-          :datetime="note.published"
-        >
-          {{ formatDateShort(new Date(note.published)) }}
-        </time>
-      </header>
-
-      <div v-if="excerpt" class="note-excerpt-text">
-        {{ note?.text }}
-      </div>
+      <h2 class="note-excerpt-title">{{ note?.title }}</h2>
     </NuxtLink>
   </article>
 </template>

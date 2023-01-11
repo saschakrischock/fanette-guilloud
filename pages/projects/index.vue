@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { data } = await useKql({
-  query: 'page("photography")',
+  query: 'page("projects")',
   select: {
     title: true,
     // description: true,

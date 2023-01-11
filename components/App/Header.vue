@@ -1,7 +1,8 @@
 <script setup lang="ts">
+const test = true
 const route = useRoute()
 const site = useSite()
-
+var currentLocation = false
 const listedChildren = computed(() =>
   (site.value?.children ?? []).filter((i: Record<string, any>) => i.isListed)
 )
@@ -9,23 +10,15 @@ const listedChildren = computed(() =>
 
 <template>
   <header class="header">
-    <NuxtLink class="logo" to="/">
-      {{ site.title }}
-    </NuxtLink>
-
-    <nav class="menu">
-      <NuxtLink
-        v-for="item in listedChildren"
-        :key="item.id"
-        :to="{ path: `/${item.id}` }"
-        :aria-current="
-          route.path.startsWith(`/${item.id}`) ? 'page' : undefined
-        "
-      >
-        {{ item.title }}
-      </NuxtLink>
-
-      <AppSocial />
-    </nav>
+    <AppLogo />
+    <AppTop v-if="$device.isDesktop" />
   </header>
+  <LazyAppSelector v-if="$device.isDesktop" />
+  <LazyAppPrevNext v-if="$device.isDesktop" />
 </template>
+
+<style scoped>
+.hide-nav .latest {
+  display: none;
+}
+</style>

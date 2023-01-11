@@ -1,33 +1,138 @@
 <script setup lang="ts">
-import type { KirbyQueryResponse } from '#nuxt-kql'
-
-const data = ref((await usePageDataById(useRoute().path)).value)
-
-// Fall back to error page if no page data is found
-if (!data.value?.result) {
-  data.value = (await usePageDataById('error')).value
-}
+const { data } = await useKql({
+  query: `page("${useRoute().path}")`,
+  isProject: true,
+  select: {
+    id: true,
+    title: true,
+    // description: true,
+    subheadline: true,
+    text: true,
+    isProject: true,
+    gallery: {
+      query: 'page.images.sortBy("sort", "filename")',
+      select: {
+        resized: {
+          query: 'file.resize(400)',
+          select: ['url'],
+        },
+        link: true,
+        width: true,
+        height: true,
+        url: true,
+        raw: true,
+        alt: true,
+      },
+    },
+  },
+})
 
 // Set the current page data for the global page context
-const page = setPage(() => data.value?.result)
-
-async function usePageDataById<T = any>(id: string) {
-  const { data } = await useKql<KirbyQueryResponse<T>>({
-    query: `page("${id}")`,
-    select: {
-      id: true,
-      title: true,
-      // description: true,
-      text: 'page.text.kirbytext',
+const { data: photographyData } = await useKql({
+  query: 'page("projects").children.listed',
+  select: {
+    id: true,
+    title: true,
+    cover: {
+      query: 'page.content.cover.toFile',
+      select: {
+        resized: {
+          query: 'file.resize(1024, 1024)',
+          select: ['url'],
+        },
+        alt: true,
+      },
     },
-  })
-  return data
-}
+    image: {
+      query: 'page.images.first',
+      select: {
+        resized: {
+          query: 'file.resize(1024, 1024)',
+          select: ['url'],
+        },
+        alt: true,
+      },
+    },
+  },
+})
+
+const albums = computed(() => photographyData.value?.result ?? [])
+const images = setPage(() => data.value?.result)
 </script>
 
 <template>
-  <article>
-    <h1 class="h1">{{ page?.title }}</h1>
-    <div v-router-links class="text" v-html="page?.text" />
-  </article>
+  <div>
+    <!--
+    <ul class="home-grid">
+      <li v-for="(album, index) in albums" :key="index">
+        <NuxtLink :to="`/${album.id}`">
+          <img
+            :src="
+              album?.cover?.resized?.url ?? album?.images?.[0]?.resized?.url
+            "
+            :alt="album?.cover?.alt ?? album?.images?.[0]?.alt"
+          />
+        </NuxtLink>
+      </li>
+    </ul>-->
+    <article>
+      <div class="single-project__text">
+        <div class="text" v-html="images?.text" />
+      </div>
+
+      <div class="column" style="--columns: 8">
+        <ul class="album-gallery">
+          <li v-for="(image, index) in images?.gallery ?? []" :key="index">
+            <img
+              v-if="!image.raw"
+              :src="image?.resized?.url"
+              :alt="image.alt"
+            />
+            <NuxtLink v-if="image.raw" :to="image.raw">
+              <img :src="image?.resized?.url" :alt="image.alt" />
+            </NuxtLink>
+          </li>
+        </ul>
+      </div>
+    </article>
+  </div>
 </template>
+
+<style scoped>
+.single-project__text {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 40rem;
+}
+.album-gallery {
+  line-height: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 0.1rem;
+}
+
+.album-gallery li {
+  display: block;
+  aspect-ratio: 533/658;
+  background-color: #000;
+  break-inside: avoid;
+}
+@media screen and (min-width: 60rem) {
+  .album-gallery {
+    columns: 2;
+  }
+}
+.page-enter-from {
+  opacity: 0;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.2s;
+}
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}
+</style>
