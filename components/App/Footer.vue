@@ -1,20 +1,25 @@
 <script setup lang="ts">
-const { data } = await useBio()
+const { data: bioData } = await useKql({
+  query: 'page("bio")',
+  select: {
+    id: true,
+    biotext: 'page.headline.kirbytext',
+  },
+})
 
-// Set the current page data for the global page context
-const page = setPage(() => data.value?.result)
+const bio = computed(() => bioData.value?.result ?? [])
 </script>
 
 <template>
   <footer class="footer">
-    <div v-html="page.biotext"></div>
+    <div v-html="bio.biotext"></div>
 
     <!-- Begin Mailchimp Signup Form -->
     <div id="mc_embed_signup">
       <form
+        id="mc-embedded-subscribe-form"
         action="https://github.us2.list-manage.com/subscribe/post?u=43a795784ca963e25903a0da6&amp;id=9937fe4fc5"
         method="post"
-        id="mc-embedded-subscribe-form"
         name="mc-embedded-subscribe-form"
         class="validate"
         target="_blank"
@@ -26,23 +31,24 @@ const page = setPage(() => data.value?.result)
             <!-- <label for="mce-EMAIL">Email Address </label> -->
             <!-- Added placeholder -->
             <input
+              id="mce-EMAIL"
               type="email"
               value=""
               name="EMAIL"
               class="required email"
-              id="mce-EMAIL"
               placeholder="email"
             />
           </div>
           <div id="mce-responses" class="clear">
             <div
-              class="response"
               id="mce-error-response"
+              class="response"
               style="display: none"
             ></div>
+
             <div
-              class="response"
               id="mce-success-response"
+              class="response"
               style="display: none"
             ></div>
           </div>
@@ -71,10 +77,10 @@ const page = setPage(() => data.value?.result)
           </svg>
           <div class="clear">
             <input
+              id="mc-embedded-subscribe"
               type="submit"
               value="subscribe"
               name="subscribe"
-              id="mc-embedded-subscribe"
               class="button"
             />
           </div>

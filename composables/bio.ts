@@ -3,8 +3,6 @@ export function useBio() {
     query: 'page("bio")',
     select: {
       title: true,
-      // description: true,
-      subheadline: true,
       biotext: 'page.headline.kirbytext',
     },
   })
