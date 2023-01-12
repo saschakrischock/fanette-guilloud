@@ -99,9 +99,9 @@ const images = setPage(() => data.value?.result)
             </NuxtLink>
           </li>
         </ul>
-        <AppFooter v-if="$device.isMobile" />
       </div>
     </article>
+    <AppFooter class="index-footer" />
   </div>
 </template>
 
@@ -150,7 +150,8 @@ const images = setPage(() => data.value?.result)
 @media screen and (max-width: 768px) {
   .column {
     background-color: #fff;
-    position: absolute;
+    /*  position: absolute;*/
+    position: relative;
     z-index: 0;
     top: 0;
     padding: 7rem 0 0;

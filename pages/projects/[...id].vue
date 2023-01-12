@@ -92,8 +92,13 @@ h1 span {
   font-weight: 400 !important;
 }
 
+.swiper,
+.swiper-container {
+  height: 100%;
+}
+
 .swiper-slide {
-  height: 100vh;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
