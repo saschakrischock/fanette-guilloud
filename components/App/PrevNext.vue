@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const page = usePage()
 const { data } = await useProjects()
+
 const children = computed(() => data.value?.result?.children)
 
 // Get the next page
@@ -29,7 +30,9 @@ const prevPage = computed(() => {
 </script>
 
 <template>
-  <nav class="blog-prevnext">
+  <nav class="projects-nav">
+    <NuxtLink to="/">Back</NuxtLink>
+    <span>–</span>
     <AppNote v-if="nextPage" :note="nextPage" :excerpt="false" />
     <AppNote v-if="!nextPage" :note="firstPage" :excerpt="false" />
   </nav>

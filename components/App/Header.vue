@@ -2,7 +2,7 @@
 const test = true
 const route = useRoute()
 const site = useSite()
-var currentLocation = false
+const currentLocation = false
 const listedChildren = computed(() =>
   (site.value?.children ?? []).filter((i: Record<string, any>) => i.isListed)
 )
@@ -14,7 +14,7 @@ const listedChildren = computed(() =>
     <AppTop v-if="$device.isDesktop" />
   </header>
   <LazyAppSelector v-if="$device.isDesktop" />
-  <LazyAppPrevNext v-if="$device.isDesktop" />
+  <AppPrevNext />
 </template>
 
 <style scoped>

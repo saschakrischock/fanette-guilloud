@@ -1,4 +1,10 @@
 <script setup lang="ts">
+useHead({
+  bodyAttrs: {
+    class: 'index',
+  },
+})
+
 const { data } = await useKql({
   query: `page("${useRoute().path}")`,
   isProject: true,
@@ -108,8 +114,29 @@ const images = setPage(() => data.value?.result)
 .album-gallery {
   line-height: 0;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   gap: 0.1rem;
+}
+
+.album-gallery li a {
+  position: relative;
+  display: block;
+}
+
+.album-gallery a:after {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.2s ease-in;
+  z-index: 1;
+}
+
+.album-gallery a:hover:after {
+  backdrop-filter: blur(0.15rem);
 }
 
 .album-gallery li {

@@ -1,4 +1,10 @@
 <script setup lang="ts">
+useHead({
+  bodyAttrs: {
+    class: 'home',
+  },
+})
+
 const { data } = await useKql({
   query: 'page("home")',
   select: {

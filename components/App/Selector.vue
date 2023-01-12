@@ -1,8 +1,8 @@
 <template>
   <div class="selector">
-    <NuxtLink class="latest" to="/"> Latest </NuxtLink>
+    <NuxtLink class="home-link" to="/"> Latest </NuxtLink>
     –
-    <NuxtLink to="/index"> Index </NuxtLink>
+    <NuxtLink class="index-link" to="/index"> Index </NuxtLink>
   </div>
 </template>
 

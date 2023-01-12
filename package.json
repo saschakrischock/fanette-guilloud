@@ -30,6 +30,8 @@
     "medium-zoom": "^1.0.8",
     "nuxt": "^3.0.0",
     "nuxt-kql": "^0.25.4",
+    "postcss": "^8.4.21",
+    "postcss-100vh-fix": "^1.0.2",
     "prettier": "^2.8.1",
     "pug": "^3.0.2",
     "pug-plain-loader": "^1.1.0",
@@ -47,6 +49,8 @@
     }
   },
   "dependencies": {
-    "@types/node": "^18.11.18"
+    "@openafg/nuxt-fullpage": "^1.0.5",
+    "@types/node": "^18.11.18",
+    "vue-scroll-snap": "^0.1.11"
   }
 }

@@ -16,7 +16,7 @@ function formatDateShort(date: Date) {
 <template>
   <article class="note-excerpt">
     <NuxtLink :to="`/${note?.id}`">
-      <h2 class="note-excerpt-title">{{ note?.title }}</h2>
+      <p class="note-excerpt-title">Next</p>
     </NuxtLink>
   </article>
 </template>

@@ -1,4 +1,10 @@
 <script setup lang="ts">
+const checked = ref(false)
+
+function checkFunction(value: any) {
+  checked.value = !checked.value
+}
+
 useHead({
   bodyAttrs: {
     class: 'single-project',
@@ -38,7 +44,22 @@ const page = setPage(() => data.value?.result)
 <template>
   <article>
     <div class="single-project__text">
-      <div class="text" v-html="page?.text" />
+      <h1>
+        {{ page.title
+        }}<span v-if="page.subheadline">, {{ page.subheadline }}</span>
+      </h1>
+      <div v-html="page?.text" />
+
+      <div class="credits">
+        <div
+          :class="{ active: checked }"
+          class="credits__toogle"
+          @click="checkFunction"
+        >
+          + Credits
+        </div>
+        <div v-if="checked" class="credits__content">abc abc abc</div>
+      </div>
     </div>
 
     <div class="column" style="--columns: 8">
@@ -52,17 +73,63 @@ const page = setPage(() => data.value?.result)
 </template>
 
 <style scoped>
+h1 {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+h1 span {
+  font-weight: 400 !important;
+}
+
+.credits {
+  margin-top: 1rem;
+}
+
+.credits__toogle {
+  cursor: pointer;
+}
+
+.credits__toogle.active {
+  filter: blur(1px);
+}
+
 .single-project__text {
   position: absolute;
   top: 1.25rem;
   right: 1.25rem;
-  width: 40rem;
+  width: 36rem;
+  background-color: #fff;
 }
 .album-gallery {
   line-height: 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 0.1rem;
+}
+
+.album-gallery li {
+  position: relative;
+}
+
+.album-gallery li a {
+  position: relative;
+}
+
+.album-gallery a:after {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.2s ease-in;
+  z-index: 1;
+}
+
+.album-gallery a:hover:after {
+  backdrop-filter: blur(0.2rem);
 }
 
 .album-gallery li {
@@ -87,5 +154,11 @@ const page = setPage(() => data.value?.result)
 .page-enter,
 .page-leave-to {
   opacity: 0;
+}
+</style>
+
+<style scoped>
+article {
+  height: 5000vh;
 }
 </style>
