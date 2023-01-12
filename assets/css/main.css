@@ -595,7 +595,7 @@ input[type='email'] {
   }
 
   .bio .mobile__nav {
-    display: none;
+    display: none !important;
   }
 
   .logo {
@@ -663,8 +663,12 @@ input[type='email'] {
     justify-content: center;
   }
 
+  .home-grid li:first-child {
+    align-items: flex-end;
+  }
+
   .home-grid li:first-child img {
-    transform: translateY(calc(50% - 2.5rem));
+    margin-bottom: 1.25rem;
   }
 
   .home-grid a {
@@ -677,7 +681,7 @@ input[type='email'] {
     top: 0;
     background-color: #fff;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     left: 0;
     z-index: 1;
   }
