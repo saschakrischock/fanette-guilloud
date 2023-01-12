@@ -12,11 +12,12 @@ import '~/assets/css/medium-zoom.css'
     <Body>
       <main class="main">
         <AppHeader />
+        <AppMobileProjects v-if="$device.isMobile" />
 
         <NuxtPage />
       </main>
 
-      <AppFooter />
+      <AppFooter class="default-footer" />
     </Body>
   </Html>
 </template>

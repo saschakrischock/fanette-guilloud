@@ -1,10 +1,4 @@
 <script setup lang="ts">
-useHead({
-  bodyAttrs: {
-    class: 'home',
-  },
-})
-
 const { data } = await useKql({
   query: 'page("home")',
   select: {
@@ -51,7 +45,7 @@ const albums = computed(() => photographyData.value?.result ?? [])
 </script>
 <template>
   <div>
-    <ul v-if="$device.isDesktop" class="home-grid">
+    <ul class="home-grid">
       <li v-for="(album, index) in albums" :key="index">
         <NuxtLink :to="`/${album.id}`">
           <img

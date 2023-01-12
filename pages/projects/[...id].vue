@@ -1,6 +1,10 @@
 <script setup lang="ts">
 const checked = ref(false)
 
+function goToPrev() {
+  window.history.length > 1 ? useRouter().go(-1) : useRouter().push('/')
+}
+
 function checkFunction(value: any) {
   checked.value = !checked.value
 }
@@ -63,7 +67,13 @@ const page = setPage(() => data.value?.result)
     </div>
 
     <div class="column" style="--columns: 8">
-      <ul class="album-gallery">
+      <Swiper v-if="$device.isMobile" :slides-per-view="1" :loop="true">
+        <SwiperSlide v-for="(image, index) in page?.gallery ?? []" :key="index">
+          <img :src="image?.resized?.url" :alt="image.alt" />
+        </SwiperSlide>
+        <div class="close" @click="goToPrev">Close</div>
+      </Swiper>
+      <ul v-if="$device.isDesktop" class="album-gallery">
         <li v-for="(image, index) in page?.gallery ?? []" :key="index">
           <img :src="image?.resized?.url" :alt="image.alt" />
         </li>
@@ -80,6 +90,17 @@ h1 {
 
 h1 span {
   font-weight: 400 !important;
+}
+
+.swiper-slide {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swiper-slide img {
+  width: calc(100vw - 2.5rem);
 }
 
 .credits {
@@ -116,6 +137,14 @@ h1 span {
   position: relative;
 }
 
+.close {
+  position: absolute;
+  padding-bottom: 1.25rem;
+  bottom: 0;
+  width: 100vw;
+  z-index: 2;
+  text-align: center;
+}
 .album-gallery a:after {
   content: '';
   pointer-events: none;
@@ -154,11 +183,5 @@ h1 span {
 .page-enter,
 .page-leave-to {
   opacity: 0;
-}
-</style>
-
-<style scoped>
-article {
-  height: 5000vh;
 }
 </style>

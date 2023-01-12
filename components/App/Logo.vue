@@ -189,6 +189,17 @@ export default defineComponent({
       </span>
     </div>
   </div>
+
+  <nav class="mobile__nav">
+    <div class="mobile__nav__left">
+      <NuxtLink class="home-link" to="/"> Latest </NuxtLink>
+      –
+      <NuxtLink class="index-link" to="/index"> Index </NuxtLink>
+    </div>
+    <div class="mobile__nav__right">
+      <NuxtLink class="bio-link" to="/bio">( i )</NuxtLink>
+    </div>
+  </nav>
 </template>
 
 <style scoped>
@@ -200,10 +211,31 @@ export default defineComponent({
 
 .logo-real {
   top: 1.25rem;
-  height: fit-content;
+  height: auto;
 }
 
-.shrink {
-  width: 14rem !important;
+.mobile__nav {
+  display: none;
+}
+
+@media screen and (min-width: 769px) {
+  .shrink {
+    width: 14rem !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .logo-real {
+    position: relative;
+  }
+
+  .mobile__nav {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .logo-svg {
+    top: 0;
+  }
 }
 </style>

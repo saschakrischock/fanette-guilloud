@@ -1,86 +1,157 @@
 <script setup lang="ts">
-const { data } = await useBio()
+useHead({
+  bodyAttrs: {
+    class: 'bio',
+  },
+})
 
-// Set the current page data for the global page context
-const page = setPage(() => data.value?.result)
+const { data: bioData } = await useKql({
+  query: 'page("bio")',
+  select: {
+    id: true,
+    biotext: 'page.headline.kirbytext',
+  },
+})
+
+const bio = computed(() => bioData.value?.result ?? [])
 </script>
 
 <template>
-  <div>
-    <header class="h1">
-      <h1>
-        {{ page?.headline || page?.title }}
-      </h1>
-      bio two
-      <p v-if="page?.subheadline" class="color-grey">{{ page.subheadline }}</p>
-    </header>
+  <div class="bio__wrapper">
+    <div class="bio__wrapper__top">
+      <div class="bio__wrapper__top__headline">Infos<br />Contact</div>
+      <div class="bio__wrapper__top__content">
+        For enquiries, comissions and portfolio requests email:
+        <a class="email" href="mailto:fanette@fanetteg.com"
+          ><svg
+            width="11"
+            height="10"
+            viewBox="0 0 11 10"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            data-v-18576999=""
+          >
+            <path
+              d="M6.62555 9.06729L5.82246 8.29462L8.901 5.0944H3.15763C1.41556 5.09237 0 3.67681 0 1.93473V0.34882H1.11541V1.93473C1.11541 3.06029 2.03208 3.97695 3.15763 3.97695H8.90505L5.83665 0.770649L6.64178 0L10.998 4.55291L10.6005 4.93215L6.62353 9.06527L6.62555 9.06729Z"
+              fill="black"
+              data-v-18576999=""
+            ></path></svg
+          >fanette@fanetteg.com</a
+        >
+      </div>
+      <div class="bio__wrapper__top__headline">Instagram</div>
+      <div class="bio__wrapper__top__content">
+        <a target="_blank" href="https://www.instagram.com/fanette_g/?hl=en"
+          ><svg
+            width="11"
+            height="10"
+            viewBox="0 0 11 10"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            data-v-18576999=""
+          >
+            <path
+              d="M6.62555 9.06729L5.82246 8.29462L8.901 5.0944H3.15763C1.41556 5.09237 0 3.67681 0 1.93473V0.34882H1.11541V1.93473C1.11541 3.06029 2.03208 3.97695 3.15763 3.97695H8.90505L5.83665 0.770649L6.64178 0L10.998 4.55291L10.6005 4.93215L6.62353 9.06527L6.62555 9.06729Z"
+              fill="black"
+              data-v-18576999=""
+            ></path></svg
+          >@fanette_g</a
+        >
+      </div>
+      <div class="bio__wrapper__top__headline">Selected<br />Clients</div>
+      <div class="bio__wrapper__top__content">
+        Act Series, Aeyde Jewelry, Andy Wolf, Kin Dee, Romantico Romantico,
+        Weyhe, YUN, Yew Yew
+      </div>
+
+      <NuxtLink class="close" to="/">Close</NuxtLink>
+    </div>
+    <div class="bio__wrapper__bottom">
+      <div class="" v-html="bio.biotext"></div>
+      <div class="copyright">
+        <span class="year"
+          >© {{ new Date().getFullYear() }} Fanette Guilloud<br
+        /></span>
+        Design:
+        <a target="_blank" href="http://justusgelberg.com/">Justus Gelberg</a>
+        <span class="code"
+          >Code:
+          <a target="_blank" href="http://saschakrischock.com/"
+            >Sascha Krischock</a
+          ></span
+        >
+      </div>
+    </div>
   </div>
 </template>
 
 <style scoped>
-.home-grid {
-  background-color: red;
-  display: grid;
-  list-style: none;
-  gap: 0.1rem;
-  line-height: 0;
-  grid-template-columns: repeat(5, 1fr);
-}
-.home-grid li {
-  position: relative;
-  --cols: 1;
-  --rows: 1;
-
-  overflow: hidden;
-  background: #000;
-  line-height: 0;
-}
-
-.home-grid a {
-  display: block;
-  height: 10rem;
-}
-.home-grid img {
-  position: absolute;
+.bio__wrapper {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
   top: 0;
-  right: 0;
-  bottom: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: all 0.3s;
+  background-color: #fff;
+  z-index: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
-.home-grid figcaption {
+.bio__wrapper__top {
+  background-color: #f0f0f0;
+  padding: 6rem 1.25rem 1.25rem;
+}
+
+.bio__wrapper__bottom {
+  padding: 1.25rem;
+  height: 100%;
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close {
+  display: block;
+  margin-top: 2rem;
+}
+
+.copyright {
+  width: 100%;
+  font-size: 0.7rem;
+}
+
+.copyright .year {
+  font-weight: bold;
+}
+
+.copyright a {
+  border-bottom: 1px solid #888;
+}
+
+.copyright .code {
+  margin-left: 0.5rem;
+}
+
+.bio__wrapper__top__headline {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.bio__wrapper__top__content {
+  margin-bottom: 1.5rem;
+}
+.bio__wrapper__top__content a {
   display: flex;
   align-items: center;
-  justify-content: center;
-  position: absolute;
-  color: #fff;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  line-height: 1;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.5);
 }
 
-@media screen and (min-width: 45em) {
-  .home-grid {
-    grid-template-columns: repeat(5, 1fr);
-  }
-  .home-grid li {
-    grid-column-start: span var(--cols);
-    grid-row-start: span var(--rows);
-  }
-  .home-grid a {
-    padding-bottom: 52.65%;
-  }
+.bio__wrapper__top__content svg {
+  margin-right: 0.3rem;
 }
-
-/* "page" is hardcoded in nuxt3 page transitions atm */
 .page-enter-from {
   opacity: 0;
 }

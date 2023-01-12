@@ -99,6 +99,7 @@ const images = setPage(() => data.value?.result)
             </NuxtLink>
           </li>
         </ul>
+        <AppFooter v-if="$device.isMobile" />
       </div>
     </article>
   </div>
@@ -145,6 +146,21 @@ const images = setPage(() => data.value?.result)
   background-color: #000;
   break-inside: avoid;
 }
+
+@media screen and (max-width: 768px) {
+  .column {
+    background-color: #fff;
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    padding: 7rem 0 0;
+  }
+
+  .album-gallery {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
 @media screen and (min-width: 60rem) {
   .album-gallery {
     columns: 2;
