@@ -1,4 +1,12 @@
 <script setup lang="ts">
+/*
+const checked = ref(false)
+
+function checkFunction(event) {
+  console.log(event)
+  checked.value = !checked.value
+}
+*/
 const { data } = await useKql({
   query: 'page("home")',
   select: {
@@ -18,6 +26,7 @@ const { data: photographyData } = await useKql({
   select: {
     id: true,
     title: true,
+    text: true,
     cover: {
       query: 'page.content.cover.toFile',
       select: {
@@ -47,14 +56,31 @@ const albums = computed(() => photographyData.value?.result ?? [])
   <div class="home-height">
     <ul class="home-grid">
       <li v-for="(album, index) in albums" :key="index">
-        <NuxtLink :to="`/${album.id}`">
-          <img
-            :src="
-              album?.cover?.resized?.url ?? album?.images?.[0]?.resized?.url
-            "
-            :alt="album?.cover?.alt ?? album?.images?.[0]?.alt"
-          />
-        </NuxtLink>
+        <div class="home-grid__wrapper">
+          <div
+            :class="{ active: album.open }"
+            class="home-grid__toggle"
+            @click="album.open = !album.open"
+          >
+            <div class="plus-minus">
+              <span class="plus">+</span><span class="minus">-</span>
+            </div>
+            {{ album.title }}
+          </div>
+          <div v-if="album.open" class="home-grid__content">
+            Producer Raoul Winter<br />
+            Art Director Max Mustermann<br />
+            Producer Miriam Jakobi
+          </div>
+          <NuxtLink :to="`/${album.id}`">
+            <img
+              :src="
+                album?.cover?.resized?.url ?? album?.images?.[0]?.resized?.url
+              "
+              :alt="album?.cover?.alt ?? album?.images?.[0]?.alt"
+            />
+          </NuxtLink>
+        </div>
       </li>
     </ul>
   </div>
@@ -79,8 +105,10 @@ const albums = computed(() => photographyData.value?.result ?? [])
   line-height: 0;
 }
 
-.home-grid li:hover a:after {
-  backdrop-filter: blur(0.2rem);
+@media screen and (min-width: 769px) {
+  .home-grid li:hover a:after {
+    backdrop-filter: blur(0.2rem);
+  }
 }
 
 .home-grid a:after {

@@ -585,6 +585,22 @@ input[type='email'] {
   display: none;
 }
 
+.minus {
+  width: 0.7rem;
+  display: none;
+  margin-right: 0.3rem;
+}
+.active .minus {
+  display: block;
+}
+.active .plus {
+  display: none;
+}
+.plus {
+  width: 0.7rem;
+  margin-right: 0.3rem;
+}
+
 @media screen and (max-width: 768px) {
   html,
   body,
@@ -663,11 +679,32 @@ input[type='email'] {
     justify-content: center;
   }
 
-  .home-grid li:first-child {
+  .home-grid__wrapper {
+  }
+
+  .home-grid__toggle {
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    margin-bottom: 0.75rem;
+  }
+
+  .home-grid__toggle.active {
+    filter: blur(1px);
+  }
+
+  .home-grid__content {
+    display: block;
+    margin-left: 0.8rem;
+    line-height: 1;
+    margin-bottom: 0.75rem;
+  }
+
+  .home-grid li {
     align-items: flex-end;
   }
 
-  .home-grid li:first-child img {
+  .home-grid li img {
     margin-bottom: 1.25rem;
   }
 

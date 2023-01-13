@@ -60,9 +60,13 @@ const page = setPage(() => data.value?.result)
           class="credits__toogle"
           @click="checkFunction"
         >
-          + Credits
+          <span class="plus">+</span><span class="minus">–</span> credits
         </div>
-        <div v-if="checked" class="credits__content">abc abc abc</div>
+        <div v-if="checked" class="credits__content">
+          Producer Raoul Winter<br />
+          Art Director Max Mustermann<br />
+          Producer Miriam Jakobi
+        </div>
       </div>
     </div>
 
@@ -112,8 +116,13 @@ h1 span {
   margin-top: 1rem;
 }
 
+.credits__content {
+  margin-left: 1rem;
+}
+
 .credits__toogle {
   cursor: pointer;
+  display: flex;
 }
 
 .credits__toogle.active {
