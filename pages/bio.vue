@@ -64,7 +64,7 @@ const bio = computed(() => bioData.value?.result ?? [])
         Weyhe, YUN, Yew Yew
       </div>
 
-      <NuxtLink class="close" to="/">Close</NuxtLink>
+      <NuxtLink class="close" to="/">(close)</NuxtLink>
     </div>
     <div class="bio__wrapper__bottom">
       <div class="" v-html="bio.biotext"></div>
