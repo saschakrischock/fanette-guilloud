@@ -732,6 +732,10 @@ input[type='email'] {
     z-index: 0;
   }
 
+  .index .home-height {
+    height: 0;
+  }
+
   .index .page-enter-to {
     background-color: red;
   }
