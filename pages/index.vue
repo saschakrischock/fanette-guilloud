@@ -28,7 +28,7 @@ const { data: photographyData } = await useKql({
       query: 'page.content.cover.toFile',
       select: {
         resized: {
-          query: 'file.resize(1024, 1024)',
+          query: 'file.resize(700, 700)',
           select: ['url'],
         },
         alt: true,
@@ -38,7 +38,7 @@ const { data: photographyData } = await useKql({
       query: 'page.images.first',
       select: {
         resized: {
-          query: 'file.resize(1024, 1024)',
+          query: 'file.resize(700, 700)',
           select: ['url'],
         },
         alt: true,

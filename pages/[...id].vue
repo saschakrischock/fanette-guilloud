@@ -19,7 +19,7 @@ const { data } = await useKql({
       query: 'page.images.sortBy("sort", "filename")',
       select: {
         resized: {
-          query: 'file.resize(400)',
+          query: 'file.resize(200)',
           select: ['url'],
         },
         link: true,

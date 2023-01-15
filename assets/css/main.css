@@ -464,7 +464,12 @@ input[type='email'] {
 
 .footer input {
   border: none;
+  border-radius: 0 !important;
   background-color: transparent;
+}
+
+input {
+  border-radius: 0 !important;
 }
 
 .copyright {
@@ -612,6 +617,10 @@ input[type='email'] {
 
   .bio .mobile__nav {
     display: none !important;
+  }
+
+  .bio .home-grid {
+    opacity: 0;
   }
 
   .logo {
