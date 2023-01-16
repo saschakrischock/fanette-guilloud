@@ -18,7 +18,7 @@ const bio = computed(() => bioData.value?.result ?? [])
     <div id="mc_embed_signup">
       <form
         id="mc-embedded-subscribe-form"
-        action="https://github.us2.list-manage.com/subscribe/post?u=43a795784ca963e25903a0da6&amp;id=9937fe4fc5"
+        action="https://ocrestudio.us18.list-manage.com/subscribe/post?u=88c647895b27dbb7aea767cd6&amp;id=88f4298927&amp;f_id=006a2be7f0"
         method="post"
         name="mc-embedded-subscribe-form"
         class="validate"

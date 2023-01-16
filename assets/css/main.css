@@ -151,6 +151,22 @@ small {
   background-color: #fff;
 }
 
+.active-next .next-link a {
+  filter: blur(1px);
+}
+
+.active-back .back-link {
+  filter: blur(1px);
+}
+
+.projects-nav a {
+  transition: all 0.2s ease-in;
+}
+
+.projects-nav .active {
+  filter: blur(1px);
+}
+
 .selector {
   position: absolute;
   margin-bottom: 0.5rem;
