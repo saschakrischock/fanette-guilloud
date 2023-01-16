@@ -3,6 +3,12 @@ useHead({
   bodyAttrs: {
     class: 'bio',
   },
+  meta: [
+    {
+      name: 'theme-color',
+      content: '#f0f0f0',
+    },
+  ],
 })
 
 const { data: bioData } = await useKql({
@@ -190,23 +196,6 @@ const bio = computed(() => bioData.value?.result ?? [])
 .close {
   display: block;
   margin-top: 2rem;
-}
-
-.copyright {
-  width: 100%;
-  font-size: 0.7rem;
-}
-
-.copyright .year {
-  font-weight: bold;
-}
-
-.copyright a {
-  border-bottom: 1px solid #888;
-}
-
-.copyright .code {
-  margin-left: 0.5rem;
 }
 
 .bio__wrapper__top__headline {
