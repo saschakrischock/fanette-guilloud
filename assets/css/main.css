@@ -831,6 +831,7 @@ input {
   .copyright {
     width: 100%;
     font-size: 0.7rem;
+    margin-top: 0rem;
   }
 
   .bio__wrapper__bottom p {
