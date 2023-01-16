@@ -63,7 +63,7 @@ const albums = computed(() => photographyData.value?.result ?? [])
             @click="album.open = !album.open"
           >
             <div class="plus-minus">
-              <span class="plus">+</span><span class="minus">-</span>
+              <span class="plus">+</span><span class="minus">—</span>
             </div>
             {{ album.title }}
           </div>

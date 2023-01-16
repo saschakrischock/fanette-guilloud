@@ -60,7 +60,7 @@ const page = setPage(() => data.value?.result)
           class="credits__toogle"
           @click="checkFunction"
         >
-          <span class="plus">+</span><span class="minus">–</span> credits
+          <span class="plus">+</span><span class="minus">—</span> credits
         </div>
         <div v-if="checked" class="credits__content">
           Producer Raoul Winter<br />
@@ -75,7 +75,7 @@ const page = setPage(() => data.value?.result)
         <SwiperSlide v-for="(image, index) in page?.gallery ?? []" :key="index">
           <img :src="image?.resized?.url" :alt="image.alt" />
         </SwiperSlide>
-        <div class="close" @click="goToPrev">Close</div>
+        <div class="close" @click="goToPrev">close</div>
       </Swiper>
       <ul v-if="$device.isDesktop" class="album-gallery">
         <li v-for="(image, index) in page?.gallery ?? []" :key="index">

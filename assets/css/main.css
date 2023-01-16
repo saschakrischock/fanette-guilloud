@@ -39,6 +39,15 @@
 }
 
 @font-face {
+  font-family: "Suisse Int'l Semi";
+  src: url('~assets/fonts/SuisseIntl-SemiBold.woff2') format('woff2'),
+    url('~assets/fonts/SuisseIntl-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: "Suisse Int'l";
   src: url('~assets/fonts/SuisseIntl-Bold.woff') format('woff');
   src: url('~assets/fonts/SuisseIntl-Bold.woff2') format('woff2');
@@ -493,6 +502,23 @@ input[type='email'] {
   font-weight: bold;
 }
 
+.bio {
+  line-height: 17px;
+}
+
+.bio input {
+  border: none;
+  width: 42%;
+  left: 0;
+  border-radius: 0 !important;
+  background-color: transparent;
+  border-radius: 0 !important;
+}
+
+.bio #mc_embed_signup_scroll svg {
+  left: 38%;
+}
+
 .footer input {
   border: none;
   border-radius: 0 !important;
@@ -727,12 +753,13 @@ input {
 
   .home-grid__toggle.active {
     filter: blur(1px);
+    margin-bottom: 0.2rem;
   }
 
   .home-grid__content {
     display: block;
-    margin-left: 0.8rem;
-    line-height: 1;
+    margin-left: 0.95rem;
+    line-height: 17px;
     margin-bottom: 0.75rem;
   }
 

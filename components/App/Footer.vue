@@ -17,6 +17,7 @@ const bio = computed(() => bioData.value?.result ?? [])
     <!-- Begin Mailchimp Signup Form -->
     <div id="mc_embed_signup">
       <form
+        v-if="$device.isDesktop"
         id="mc-embedded-subscribe-form"
         action="https://ocrestudio.us18.list-manage.com/subscribe/post?u=88c647895b27dbb7aea767cd6&amp;id=88f4298927&amp;f_id=006a2be7f0"
         method="post"
