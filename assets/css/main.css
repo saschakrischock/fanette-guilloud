@@ -32,11 +32,10 @@
 
 @font-face {
   font-family: "Suisse Int'l";
-  src: url('~assets/fonts/SuisseIntl-Regular.woff') format('woff');
-  src: url('~assets/fonts/SuisseIntl-Regular.woff2') format('woff2');
+  src: url('~assets/fonts/SuisseIntl-Regular-WebS.woff') format('woff');
+  src: url('~assets/fonts/SuisseIntl-Regular-WebS.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
 }
 
 @font-face {
@@ -45,7 +44,6 @@
   src: url('~assets/fonts/SuisseIntl-Bold.woff2') format('woff2');
   font-weight: bold;
   font-style: normal;
-  font-display: swap;
 }
 
 html {
