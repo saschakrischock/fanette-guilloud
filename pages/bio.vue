@@ -147,7 +147,7 @@ const bio = computed(() => bioData.value?.result ?? [])
         </form>
       </div>
 
-      <div class="close" @click="goToPrev">close</div>
+      <div class="close" @click="goToPrev">(close)</div>
     </div>
     <div class="bio__wrapper__bottom">
       <div class="" v-html="bio.biotext"></div>
