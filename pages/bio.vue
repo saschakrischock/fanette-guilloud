@@ -11,6 +11,10 @@ useHead({
   ],
 })
 
+function goToPrev() {
+  window.history.length > 1 ? useRouter().go(-1) : useRouter().push('/')
+}
+
 const { data: bioData } = await useKql({
   query: 'page("bio")',
   select: {
@@ -143,7 +147,7 @@ const bio = computed(() => bioData.value?.result ?? [])
         </form>
       </div>
 
-      <NuxtLink class="close" to="/">(close)</NuxtLink>
+      <div class="close" @click="goToPrev">close</div>
     </div>
     <div class="bio__wrapper__bottom">
       <div class="" v-html="bio.biotext"></div>
