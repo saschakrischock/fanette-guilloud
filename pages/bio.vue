@@ -184,7 +184,7 @@ const bio = computed(() => bioData.value?.result ?? [])
 
 .bio__wrapper__top {
   background-color: #f0f0f0;
-  padding: 6rem 1.25rem 1.25rem;
+  padding: 5rem 1.25rem 1.25rem;
 }
 
 .bio__wrapper__bottom {

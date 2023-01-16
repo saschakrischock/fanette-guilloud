@@ -192,9 +192,9 @@ export default defineComponent({
 
   <nav class="mobile__nav">
     <div class="mobile__nav__left">
-      <NuxtLink class="home-link" to="/"> Latest </NuxtLink>
+      <NuxtLink class="home-link" to="/">Latest</NuxtLink>
       <span class="seperator">—</span>
-      <NuxtLink class="index-link" to="/index"> Index </NuxtLink>
+      <NuxtLink class="index-link" to="/index">Index </NuxtLink>
     </div>
     <div class="mobile__nav__right">
       <NuxtLink class="bio-link" to="/bio">( i )</NuxtLink>

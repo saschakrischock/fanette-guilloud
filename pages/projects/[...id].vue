@@ -71,7 +71,15 @@ const page = setPage(() => data.value?.result)
     </div>
 
     <div class="column" style="--columns: 8">
-      <Swiper v-if="$device.isMobile" :slides-per-view="1" :loop="true">
+      <Swiper
+        v-if="$device.isMobile"
+        :modules="[SwiperNavigation]"
+        :slides-per-view="1"
+        :loop="true"
+        :navigation="{
+          nextEl: '',
+        }"
+      >
         <SwiperSlide v-for="(image, index) in page?.gallery ?? []" :key="index">
           <img :src="image?.resized?.url" :alt="image.alt" />
         </SwiperSlide>
@@ -83,6 +91,7 @@ const page = setPage(() => data.value?.result)
         </li>
       </ul>
     </div>
+    <div class="close" @click="goToPrev">close</div>
   </article>
 </template>
 
