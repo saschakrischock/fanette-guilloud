@@ -110,7 +110,7 @@ const images = setPage(() => data.value?.result)
   position: absolute;
   top: 1.25rem;
   right: 1.25rem;
-  width: 40rem;
+  width: calc(33vw - 1.35rem);
 }
 .album-gallery {
   line-height: 0;

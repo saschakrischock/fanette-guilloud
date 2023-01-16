@@ -1,12 +1,12 @@
 <template>
   <div class="header__right">
-    <div class="top__column">
+    <div class="top__column column__clients">
       <div class="top__column__header">
         Selected<br />
         Clients
       </div>
 
-      <div class="">
+      <div class="top__column__content">
         Act Series, Aeyde Jewelry, Andy Wolf, Kin Dee, Romantico Romantico,
         Weyhe, YUN, Yew Yew
       </div>
@@ -63,7 +63,7 @@
 <style lang="scss">
 .top {
   &__column {
-    width: 17rem;
+    max-width: calc(20vw + 0.1rem);
 
     a {
       display: flex;
@@ -80,6 +80,10 @@
     }
     &__header {
       margin-bottom: 1rem;
+    }
+
+    &__content {
+      width: 90%;
     }
   }
 }

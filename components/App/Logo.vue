@@ -193,7 +193,7 @@ export default defineComponent({
   <nav class="mobile__nav">
     <div class="mobile__nav__left">
       <NuxtLink class="home-link" to="/"> Latest </NuxtLink>
-      –
+      <span class="seperator">—</span>
       <NuxtLink class="index-link" to="/index"> Index </NuxtLink>
     </div>
     <div class="mobile__nav__right">
@@ -206,7 +206,7 @@ export default defineComponent({
 .logo__text {
   display: flex;
   flex-direction: column;
-  margin-left: 0.8rem;
+  margin-left: 0.7rem;
 }
 
 .logo-real {

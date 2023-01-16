@@ -24,5 +24,6 @@
   display: flex;
   flex-direction: column;
   margin-left: 0.5rem;
+  margin-top: -0.5rem;
 }
 </style>

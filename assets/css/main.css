@@ -82,6 +82,13 @@ header {
   display: flex;
   gap: 2rem;
   opacity: 1;
+  display: flex;
+  gap: 0;
+  opacity: 1;
+  position: absolute;
+  right: 1.25rem;
+  justify-content: space-between;
+  width: calc(40vw - 1.45rem);
 }
 li {
   list-style: none;
@@ -106,6 +113,10 @@ small {
   color: var(--color-text-grey);
 }
 
+.seperator {
+  margin: 0 0.7rem;
+}
+
 .bg-light {
   background-color: var(--color-light);
 }
@@ -115,6 +126,11 @@ small {
 
 .home .projects-nav,
 .index .projects-nav {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.home .column__clients {
   opacity: 0;
   pointer-events: none;
 }
@@ -143,13 +159,14 @@ small {
 .logo {
   height: fit-content;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   cursor: pointer;
   transition: all 0.3s ease-in;
 }
 
 .logo-svg {
-  width: 36rem;
+  /* width: 36rem;*/
+  width: 39vw;
   height: auto;
   transition: all 0.3s ease-in;
 }
@@ -427,7 +444,7 @@ hr {
 
 #mc_embed_signup {
   display: flex;
-  width: 17rem;
+  width: calc(20vw - 1.45rem);
   flex-direction: column;
   justify-content: space-between;
 }
@@ -576,10 +593,6 @@ input {
   display: flex;
   align-items: center;
   margin-bottom: 0.5rem;
-}
-
-.projects-nav span {
-  margin: 0 0.25rem;
 }
 
 .note-excerpt-date {

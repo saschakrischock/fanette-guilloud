@@ -32,7 +32,7 @@ const prevPage = computed(() => {
 <template>
   <nav class="projects-nav">
     <NuxtLink to="/">Back</NuxtLink>
-    <span>–</span>
+    <span class="seperator">—</span>
     <AppNote v-if="nextPage" :note="nextPage" :excerpt="false" />
     <AppNote v-if="!nextPage" :note="firstPage" :excerpt="false" />
   </nav>
