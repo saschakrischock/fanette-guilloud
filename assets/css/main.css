@@ -78,6 +78,13 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.swiper-slide {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 header {
   justify-content: space-between;
   padding: 1.25rem;
