@@ -44,6 +44,11 @@ export function setPage<T extends Record<string, any> = Record<string, any>>(
       useHead({
         title,
         meta: [
+          {
+            name: 'viewport',
+            content:
+              'width=device-width, initial-scale=1.0, viewport-fit=cover',
+          },
           { name: 'description', content: description },
           { property: 'og:title', content: title },
           { property: 'og:description', content: description },

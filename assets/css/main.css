@@ -860,4 +860,9 @@ input {
   .single-project .logo .single-project .single-project__text {
     display: none;
   }
+
+  body {
+    padding: env(safe-area-inset-top) env(safe-area-inset-right)
+      env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
 }
