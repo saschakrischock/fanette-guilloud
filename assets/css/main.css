@@ -211,6 +211,10 @@ small {
   .single-project .logo-svg {
     width: 14rem;
   }
+
+  .code {
+    display: block;
+  }
 }
 
 .single-project .header__right {
@@ -499,7 +503,7 @@ input[type='email'] {
 }
 
 .footer strong {
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .bio {
@@ -807,10 +811,42 @@ input {
     background-color: #fff;
   }
 
+  .year {
+    font-weight: bold;
+  }
+
   .index .home-grid {
     position: absolute;
     left: 1.25rem;
     height: 0;
+  }
+
+  .copyright {
+    width: 100%;
+    font-size: 0.7rem;
+  }
+
+  .bio__wrapper__bottom p {
+    margin-bottom: 1rem;
+  }
+
+  .footer .copyright {
+  }
+
+  .footer {
+    padding-bottom: 1.25rem;
+  }
+
+  .copyright .year {
+    font-weight: bold;
+  }
+
+  .copyright a {
+    border-bottom: 1px solid #888;
+  }
+
+  .copyright .code {
+    margin-left: 0.5rem;
   }
 
   .single-project footer,

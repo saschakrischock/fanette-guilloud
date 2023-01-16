@@ -89,13 +89,16 @@ const bio = computed(() => bioData.value?.result ?? [])
       </form>
 
       <div class="copyright">
-        © {{ new Date().getFullYear() }} Fanette Guilloud<br />
+        <span class="year"
+          >© {{ new Date().getFullYear() }} Fanette Guilloud<br
+        /></span>
         Design:
-        <a target="_blank" href="http://justusgelberg.com/">Justus Gelberg</a
-        ><br />
-        Code:
-        <a target="_blank" href="http://saschakrischock.com/"
-          >Sascha Krischock</a
+        <a target="_blank" href="http://justusgelberg.com/">Justus Gelberg</a>
+        <span class="code"
+          >Code:
+          <a target="_blank" href="http://saschakrischock.com/"
+            >Sascha Krischock</a
+          ></span
         >
       </div>
     </div>
