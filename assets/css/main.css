@@ -843,8 +843,7 @@ input {
     z-index: 0;
   }
 
-  .index .home-grid,
-  .single-project .home-grid {
+  .index .home-grid {
     opacity: 0;
   }
 
