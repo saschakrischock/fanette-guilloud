@@ -123,7 +123,7 @@ const albums = computed(() => photographyData.value?.result ?? [])
 
 .home-grid a {
   display: block;
-  aspect-ratio: 533/658;
+  aspect-ratio: 534/658;
 }
 .home-grid img {
   top: 0;

@@ -30,6 +30,7 @@ const { data } = await useKql({
     // description: true,
     subheadline: true,
     text: true,
+    description: true,
     isProject: true,
     gallery: {
       query: 'page.images.sortBy("sort", "filename")',
@@ -62,6 +63,7 @@ const page = setPage(() => data.value?.result)
 
       <div class="credits">
         <div
+          v-if="page?.description"
           :class="{ active: checked }"
           class="credits__toogle"
           @click="checkFunction"
@@ -160,6 +162,10 @@ h1 span {
   display: flex;
 }
 
+.credits__no__toogle {
+  display: flex;
+}
+
 .credits__toogle.active {
   filter: blur(1px);
 }
@@ -212,7 +218,7 @@ h1 span {
 
 .album-gallery li {
   display: block;
-  aspect-ratio: 533/658;
+  aspect-ratio: 534/658;
   background-color: #000;
   break-inside: avoid;
 }

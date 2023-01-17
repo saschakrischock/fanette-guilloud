@@ -150,7 +150,7 @@ const images = setPage(() => data.value?.result)
 
 .album-gallery li {
   display: block;
-  aspect-ratio: 533/658;
+  aspect-ratio: 534/658;
   background-color: #000;
   break-inside: avoid;
 }
