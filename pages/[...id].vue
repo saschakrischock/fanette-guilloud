@@ -6,7 +6,7 @@ useHead({
   meta: [
     {
       name: 'theme-color',
-      content: '#fffff',
+      content: '#ffffff',
     },
   ],
 })
@@ -142,8 +142,10 @@ const images = setPage(() => data.value?.result)
   z-index: 1;
 }
 
-.album-gallery a:hover:after {
-  backdrop-filter: blur(0.15rem);
+@media screen and (min-width: 769px) {
+  a:hover:after {
+    backdrop-filter: blur(0.15rem);
+  }
 }
 
 .album-gallery li {
