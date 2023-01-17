@@ -76,7 +76,7 @@ const page = setPage(() => data.value?.result)
       </div>
     </div>
 
-    <div class="column" style="--columns: 8">
+    <div class="project__column" style="--columns: 8">
       <Swiper
         v-if="$device.isMobile"
         :modules="[SwiperNavigation]"
