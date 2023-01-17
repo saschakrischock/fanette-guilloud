@@ -3,6 +3,12 @@ useHead({
   bodyAttrs: {
     class: 'home',
   },
+  meta: [
+    {
+      name: 'theme-color',
+      content: '#ffffff',
+    },
+  ],
 })
 
 const { data } = await useKql({

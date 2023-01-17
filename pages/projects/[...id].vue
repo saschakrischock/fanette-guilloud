@@ -13,6 +13,12 @@ useHead({
   bodyAttrs: {
     class: 'single-project',
   },
+  meta: [
+    {
+      name: 'theme-color',
+      content: '#ffffff',
+    },
+  ],
 })
 
 const { data } = await useKql({
