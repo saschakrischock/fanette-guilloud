@@ -32,8 +32,8 @@
 
 @font-face {
   font-family: "Suisse Int'l";
-  src: url('~assets/fonts/SuisseIntl-Regular-WebS.woff') format('woff');
-  src: url('~assets/fonts/SuisseIntl-Regular-WebS.woff2') format('woff2');
+  src: url('/assets/fonts/SuisseIntl-Regular-WebS.woff') format('woff');
+  src: url('/assets/fonts/SuisseIntl-Regular-WebS.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -41,8 +41,8 @@
 
 @font-face {
   font-family: "Suisse Int'l";
-  src: url('~assets/fonts/SuisseIntl-SemiBold.woff2') format('woff2'),
-    url('~assets/fonts/SuisseIntl-SemiBold.woff') format('woff');
+  src: url('/assets/fonts/SuisseIntl-SemiBold.woff2') format('woff2'),
+    url('/assets/fonts/SuisseIntl-SemiBold.woff') format('woff');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -50,8 +50,8 @@
 
 @font-face {
   font-family: "Suisse Int'l";
-  src: url('~assets/fonts/SuisseIntl-Bold.woff') format('woff');
-  src: url('~assets/fonts/SuisseIntl-Bold.woff2') format('woff2');
+  src: url('/assets/fonts/SuisseIntl-Bold.woff') format('woff');
+  src: url('/assets/fonts/SuisseIntl-Bold.woff2') format('woff2');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -85,6 +85,28 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.swiper-button-next {
+  width: 50vw;
+  position: absolute;
+  top: 0;
+  height: 100%;
+}
+
+.swiper-button-prev {
+  width: 50vw;
+  position: absolute;
+  top: 0;
+  height: 100%;
+}
+
+.swiper-button-next:after {
+  display: none;
+}
+
+.swiper-button-prev:after {
+  display: none;
 }
 
 header {

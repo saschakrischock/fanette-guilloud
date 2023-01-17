@@ -13,7 +13,6 @@ import '~/assets/css/medium-zoom.css'
       <main class="main">
         <AppHeader />
         <AppMobileProjects v-if="$device.isMobile" />
-
         <NuxtPage />
       </main>
 

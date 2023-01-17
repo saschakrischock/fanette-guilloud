@@ -76,14 +76,12 @@ const page = setPage(() => data.value?.result)
         :modules="[SwiperNavigation]"
         :slides-per-view="1"
         :loop="true"
-        :navigation="{
-          nextEl: '',
-        }"
+        :touch-events-target="'container'"
+        navigation
       >
         <SwiperSlide v-for="(image, index) in page?.gallery ?? []" :key="index">
           <img :src="image?.resized?.url" :alt="image.alt" />
         </SwiperSlide>
-        <div class="close" @click="goToPrev">close</div>
       </Swiper>
       <ul v-if="$device.isDesktop" class="album-gallery">
         <li v-for="(image, index) in page?.gallery ?? []" :key="index">
@@ -91,7 +89,7 @@ const page = setPage(() => data.value?.result)
         </li>
       </ul>
     </div>
-    <div class="close" @click="goToPrev">close</div>
+    <div v-if="$device.isMobile" class="close" @click="goToPrev">close</div>
   </article>
 </template>
 
@@ -121,6 +119,28 @@ h1 span {
   width: calc(100vw - 2.5rem);
 }
 
+.swiper-button-next {
+  width: 50vw;
+  position: absolute;
+  top: 0;
+  height: 100%;
+}
+
+.swiper-button-next:after {
+  display: none;
+}
+
+.swiper-button-prev {
+  width: 50vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
+.swiper-button-prev:after {
+  display: none;
+}
 .credits {
   margin-top: 1rem;
 }
