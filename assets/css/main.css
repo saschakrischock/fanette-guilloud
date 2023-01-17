@@ -69,7 +69,7 @@ html {
   font-family: var(--font-family-sans);
   color: var(--color-text);
   line-height: 18px;
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth;*/
   width: 100vw;
   overflow-x: hidden;
   background: var(--color-background);
@@ -769,7 +769,7 @@ input {
   .home-grid {
     display: block !important;
     flex-direction: column;
-    scroll-behavior: smooth;
+    /*  scroll-behavior: smooth;*/
     scroll-snap-type: y mandatory;
     scroll-snap-stop: normal;
     -webkit-overflow-scrolling: touch; /* Needed on iOS Safari */
@@ -843,7 +843,8 @@ input {
     z-index: 0;
   }
 
-  .index .home-grid {
+  .index .home-grid,
+  .single-project .home-grid {
     opacity: 0;
   }
 
@@ -915,6 +916,10 @@ input {
 
   .home-grid__wrapper__desktop {
     opacity: 0;
+  }
+
+  .home .footer {
+    position: absolute;
   }
 
   body {

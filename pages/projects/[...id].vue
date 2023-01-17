@@ -226,16 +226,19 @@ h1 span {
     columns: 2;
   }
 }
-.page-enter-from {
-  opacity: 0;
-}
 
-.page-enter-active,
-.page-leave-active {
-  transition: all 0.2s;
-}
-.page-enter,
-.page-leave-to {
-  opacity: 0;
+@media screen and (min-width: 769px) {
+  .page-enter-from {
+    opacity: 0;
+  }
+
+  .page-enter-active,
+  .page-leave-active {
+    transition: all 0.2s;
+  }
+  .page-enter,
+  .page-leave-to {
+    opacity: 0;
+  }
 }
 </style>
