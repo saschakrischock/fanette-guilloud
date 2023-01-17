@@ -31,7 +31,7 @@ const bio = computed(() => bioData.value?.result ?? [])
     <div class="bio__wrapper__top">
       <div class="bio__wrapper__top__headline">Infos<br />Contact</div>
       <div class="bio__wrapper__top__content">
-        For enquiries, comissions and portfolio requests email :
+        For enquiries, comissions and portfolio requests email:
         <a class="email" href="mailto:fanette@fanetteg.com"
           ><svg
             width="11"

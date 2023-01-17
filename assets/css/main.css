@@ -57,6 +57,14 @@
   font-display: swap;
 }
 
+*:focus {
+  outline: none !important;
+}
+
+input[data-autocompleted] {
+  background-color: transparent !important;
+}
+
 html {
   font-family: var(--font-family-sans);
   color: var(--color-text);
