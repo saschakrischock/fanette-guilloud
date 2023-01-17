@@ -71,9 +71,7 @@ const page = setPage(() => data.value?.result)
           <span class="plus">+</span><span class="minus">—</span> credits
         </div>
         <div v-if="checked" class="credits__content">
-          Producer Raoul Winter<br />
-          Art Director Max Mustermann<br />
-          Producer Miriam Jakobi
+          {{ page.description }}
         </div>
       </div>
     </div>
@@ -155,6 +153,7 @@ h1 span {
 
 .credits__content {
   margin-left: 1rem;
+  white-space: break-spaces;
 }
 
 .credits__toogle {

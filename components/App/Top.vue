@@ -19,7 +19,7 @@
       </div>
 
       <div class="">
-        For enquiries, comissions and portfolio requests email:
+        For enquiries, comissions and<br />portfolio requests email:
         <a class="email" href="mailto:fanette@fanetteg.com"
           ><svg
             width="11"
@@ -64,6 +64,7 @@
 .top {
   &__column {
     max-width: calc(20vw + 0.1rem);
+    min-width: calc(20vw - 1.45rem);
 
     a {
       display: flex;

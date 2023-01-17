@@ -27,6 +27,7 @@ const { data: photographyData } = await useKql({
     id: true,
     title: true,
     text: true,
+    description: true,
     cover: {
       query: 'page.content.cover.toFile',
       select: {
@@ -58,6 +59,7 @@ const albums = computed(() => photographyData.value?.result ?? [])
       <li v-for="(album, index) in albums" :key="index">
         <div class="home-grid__wrapper">
           <div
+            v-if="album.description"
             :class="{ active: album.open }"
             class="home-grid__toggle"
             @click="album.open = !album.open"
@@ -67,10 +69,15 @@ const albums = computed(() => photographyData.value?.result ?? [])
             </div>
             {{ album.title }}
           </div>
+          <div v-else class="home-grid__toggle">
+            <div class="plus-minus">
+              <span class="plus">+</span><span class="minus">—</span>
+            </div>
+            {{ album.title }}
+          </div>
+
           <div v-if="album.open" class="home-grid__content">
-            Producer Raoul Winter<br />
-            Art Director Max Mustermann<br />
-            Producer Miriam Jakobi
+            {{ album.description }}
           </div>
           <NuxtLink :to="`/${album.id}`">
             <img
@@ -94,6 +101,10 @@ const albums = computed(() => photographyData.value?.result ?? [])
   line-height: 0;
   grid-template-columns: repeat(5, 1fr);
   grid-auto-flow: dense;
+}
+
+.home-grid__content {
+  white-space: break-spaces;
 }
 .home-grid li {
   position: relative;
