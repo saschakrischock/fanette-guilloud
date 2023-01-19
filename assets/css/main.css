@@ -520,14 +520,14 @@ hr {
 
 #mc_embed_signup_scroll svg {
   position: absolute;
-  right: 0;
+  left: 9.8rem;
   top: 1.6rem;
   opacity: 0.7;
 }
 
 input[type='submit'] {
   position: absolute;
-  right: 0;
+  left: 10rem;
   top: 1.6rem;
   cursor: pointer;
   opacity: 0;
@@ -536,7 +536,7 @@ input[type='submit'] {
 
 input[type='email'] {
   line-height: 1.6;
-  width: 100%;
+  width: 10.5rem;
   border-bottom: 1px solid #000 !important;
 }
 
