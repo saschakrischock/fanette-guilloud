@@ -20,7 +20,7 @@
 
       <div class="">
         For enquiries, comissions and<br />portfolio requests email:
-        <a class="email" href="mailto:fanette@fanetteg.com"
+        <a class="email" href="mailto:fanette@ocrestudio.co"
           ><svg
             width="11"
             height="10"
@@ -34,7 +34,7 @@
               fill="black"
               data-v-18576999=""
             ></path></svg
-          >fanette@fanetteg.com</a
+          >fanette@ocrestudio.co</a
         >
 
         Instagram<br />

@@ -32,7 +32,7 @@ const bio = computed(() => bioData.value?.result ?? [])
       <div class="bio__wrapper__top__headline">Infos<br />Contact</div>
       <div class="bio__wrapper__top__content">
         For enquiries, comissions and portfolio requests email:
-        <a class="email" href="mailto:fanette@fanetteg.com"
+        <a class="email" href="mailto:fanette@ocrestudio.co"
           ><svg
             width="11"
             height="10"
@@ -46,7 +46,7 @@ const bio = computed(() => bioData.value?.result ?? [])
               fill="black"
               data-v-18576999=""
             ></path></svg
-          >fanette@fanetteg.com</a
+          >fanette@ocrestudio.co</a
         >
       </div>
       <div class="bio__wrapper__top__headline">Instagram</div>
