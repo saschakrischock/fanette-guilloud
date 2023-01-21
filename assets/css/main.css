@@ -247,8 +247,20 @@ small {
 }
 
 @media screen and (min-width: 769px) {
-  .single-project .logo-svg {
-    width: 14rem;
+  .single-project .logo__small {
+    opacity: 1;
+  }
+
+  .single-project .logo__small {
+    opacity: 1;
+    transition-delay: 0.3s;
+    filter: blur(0);
+  }
+
+  .single-project .logo-big {
+    transition-delay: 0s !important;
+    opacity: 0;
+    pointer-events: none;
   }
 
   .code {
