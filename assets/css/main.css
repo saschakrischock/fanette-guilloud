@@ -219,7 +219,7 @@ small {
 
 .logo {
   height: fit-content;
-  display: flex;
+  display: contents;
   align-items: flex-start;
   cursor: pointer;
   transition: all 0.3s ease-in;
@@ -546,6 +546,7 @@ input[type='email'] {
 }
 
 .bio {
+  background-color: color(srgb 0.9411 0.9412 0.9413);
   line-height: 17px;
 }
 
