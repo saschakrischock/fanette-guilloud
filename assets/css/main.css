@@ -219,7 +219,7 @@ small {
 
 .logo {
   height: fit-content;
-  display: contents;
+  display: flex;
   align-items: flex-start;
   cursor: pointer;
   transition: all 0.3s ease-in;
@@ -726,6 +726,7 @@ input {
   }
 
   .logo {
+    display: contents !important;
     width: 100%;
   }
 
