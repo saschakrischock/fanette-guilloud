@@ -1,5 +1,11 @@
 export default defineNuxtConfig({
-  modules: ['@vueuse/nuxt', 'nuxt-kql', '@nuxtjs/device', 'nuxt-swiper'],
+  modules: [
+    '@vueuse/nuxt',
+    'nuxt-kql',
+    '@nuxtjs/device',
+    'nuxt-swiper',
+    '@nuxt/image-edge',
+  ],
 
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },

@@ -13,13 +13,11 @@ export default defineComponent({
             setTimeout(() => {
               logo_small.classList.toggle('show-small')
             }, 300)
-            logo.toggle('shrink-height')
           }
         } else {
           if (nav_classes.contains('shrink') === true) {
             nav_classes.toggle('shrink')
             logo_small.classList.toggle('show-small')
-            logo.toggle('shrink-height')
           }
         }
       })
