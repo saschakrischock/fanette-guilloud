@@ -286,7 +286,7 @@ export default defineComponent({
 .logo-real {
   top: 1.25rem;
   height: auto;
-  transition: all 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
 }
 
 .logo-big {
@@ -297,12 +297,16 @@ export default defineComponent({
   opacity: 0;
   filter: blur(3px);
   width: 14rem !important;
-  transition: all 0.3s ease-in;
+  transition: opacity 0.3s ease-in, filter 0.3s ease-in;
 }
 
 .show-small {
   opacity: 1;
   filter: blur(0);
+}
+
+.logo-holder {
+  transition: none !important;
 }
 
 .mobile__nav {
@@ -314,6 +318,7 @@ export default defineComponent({
     /*width: 14rem !important;*/
     filter: blur(3px);
     opacity: 0;
+    pointer-events: none;
     transition-delay: 0s !important;
   }
 }
