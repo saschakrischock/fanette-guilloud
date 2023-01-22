@@ -254,7 +254,7 @@ small {
 
   .single-project .logo__small {
     opacity: 1 !important;
-    transition-delay: 0.3s;
+    transition-delay: 0.3s !important;
     filter: blur(0) !important;
   }
 
