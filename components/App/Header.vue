@@ -9,7 +9,7 @@ const listedChildren = computed(() =>
 </script>
 
 <template>
-  <header class="header">
+  <header class="header header-only">
     <AppLogo />
     <AppTop v-if="$device.isDesktop" />
   </header>

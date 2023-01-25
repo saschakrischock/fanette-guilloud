@@ -248,22 +248,24 @@ small {
 }
 
 @media screen and (min-width: 769px) {
-  .single-project .logo__small {
-    opacity: 1;
+  /*.single-project .logo__small {
+    /* opacity: 1;
   }
 
   .single-project .logo__small {
     opacity: 1 !important;
     transition-delay: 0.3s !important;
     filter: blur(0) !important;
-  }
+  }*/
 
   .single-project .logo-big {
-    transition-delay: 0s !important;
+    /* transition-delay: 0s !important;
     opacity: 0;
     transition: all 0.3s ease-in;
     filter: blur(3px);
-    pointer-events: none;
+    pointer-events: none;*/
+    transition: all 0.3s ease-in;
+    transform: scale(0.5) !important;
   }
 
   .code {
@@ -938,6 +940,10 @@ input {
 
   .home-grid__wrapper__desktop {
     opacity: 0;
+  }
+
+  .logo-big {
+    transform: scale(1) !important;
   }
 
   .home .footer {
