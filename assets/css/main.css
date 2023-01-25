@@ -265,7 +265,7 @@ small {
     filter: blur(3px);
     pointer-events: none;*/
     transition: all 0.3s ease-in;
-    transform: scale(0.5) !important;
+    transform: scale(0.45) !important;
   }
 
   .code {

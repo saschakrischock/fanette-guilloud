@@ -15,7 +15,7 @@ export default defineComponent({
           // markers: true,
         },
       })
-      .to('.logo-big', { scale: 0.5 })
+      .to('.logo-big', { scale: 0.45 })
 
     this.$nextTick(function () {
       window.addEventListener('scroll', function () {
