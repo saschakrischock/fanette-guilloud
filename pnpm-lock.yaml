@@ -11,6 +11,7 @@ specifiers:
   '@vueuse/nuxt': ^9.8.2
   eslint: ^8.30.0
   eslint-config-prettier: ^8.5.0
+  gsap: ^3.11.4
   ipx: ^1.0.0-2
   lint-staged: ^13.1.0
   medium-zoom: ^1.0.8
@@ -32,6 +33,7 @@ specifiers:
 dependencies:
   '@openafg/nuxt-fullpage': 1.0.5
   '@types/node': 18.11.18
+  gsap: 3.11.4
   ipx: 1.0.0-2
   nuxt-swiper: 0.1.6
   vue-scroll-snap: 0.1.11
@@ -3055,6 +3057,10 @@ packages:
   /grapheme-splitter/1.0.4:
     resolution: {integrity: sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==}
     dev: true
+
+  /gsap/3.11.4:
+    resolution: {integrity: sha512-McHhEguHyExMMnjqKA8G+7TvxmlKQGMbjgwAilnFe1e4id7V/tFveRQ2YMZhTYu0oxHGWvbPltdVYQOu3z1SCA==}
+    dev: false
 
   /gzip-size/7.0.0:
     resolution: {integrity: sha512-O1Ld7Dr+nqPnmGpdhzLmMTQ4vAsD+rHwMm1NLUmoUFFymBOMKxCCrtDxqdBRYXdeEPEi3SyoR4TizJLQrnKBNA==}
