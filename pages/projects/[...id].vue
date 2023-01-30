@@ -182,6 +182,10 @@ h1 span {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 0.1rem;
 }
+.album-gallery img {
+  height: 100%;
+  object-fit: cover;
+}
 
 .album-gallery li {
   position: relative;
