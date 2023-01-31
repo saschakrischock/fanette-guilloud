@@ -60,8 +60,7 @@ const albums = computed(() => photographyData.value?.result ?? [])
     <ul v-if="$device.isDesktop" class="home-grid">
       <li v-for="(album, index) in albums" :key="index">
         <NuxtLink :to="`/${album.id}`">
-          <nuxt-img
-            format="webp"
+          <img
             :src="
               album?.cover?.resized?.url ?? album?.images?.[0]?.resized?.url
             "
