@@ -27,7 +27,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       // Prerender the index page
-      routes: ['/'],
+      //routes: ['/'],
     },
   },
 
