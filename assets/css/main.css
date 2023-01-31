@@ -65,6 +65,9 @@ input[data-autocompleted] {
   background-color: transparent !important;
 }
 
+.test {
+}
+
 html {
   font-family: var(--font-family-sans);
   color: var(--color-text);
