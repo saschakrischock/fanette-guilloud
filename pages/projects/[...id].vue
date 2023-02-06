@@ -105,6 +105,11 @@ h1 {
   margin-bottom: 1rem;
 }
 
+.album-gallery li img {
+  height: 100%;
+  object-fit: cover;
+}
+
 h1 span {
   font-weight: 400 !important;
 }
