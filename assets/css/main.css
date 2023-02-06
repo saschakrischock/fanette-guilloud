@@ -314,6 +314,11 @@ small {
   margin-bottom: var(--gutter);
 }
 
+.album-gallery img {
+  height: 100%;
+  object-fit: cover;
+}
+
 .autogrid {
   --gutter: 3rem;
   --min: 10rem;
