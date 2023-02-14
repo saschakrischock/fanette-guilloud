@@ -1,5 +1,6 @@
 <script setup lang="ts">
 useHead({
+  titleTemplate: 'Fanette Guilloud',
   bodyAttrs: {
     class: 'home',
   },
